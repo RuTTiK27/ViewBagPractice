@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Student";
+}
+
+<h1>Student List</h1>
+
+@{
+    var student = ViewBag.students as List<Student>;
+}
+ 
+@if (student?.Count > 0)
+{
+<table class="table">
+    <thead>
+        <tr>
+        <th>Student Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        </tr>
+    </thead>
+
+    <tbody>
+            @foreach (var stu in student)
+            {
+                <tr>
+                    <th>@stu.id</th>
+                    <td>@stu.name</td>
+                    <td>@stu.age</td>
+                </tr>
+            }
+    </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        No student found!
+    </div>
+}
+
+
+
